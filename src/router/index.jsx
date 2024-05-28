@@ -9,6 +9,7 @@ import EditEvent from "../pages/EditEvent";
 import EventLayout from "../pages/EventLayout";
 
 import { loadEvents } from "../pages/Events";
+import ThrownPage from "../pages/ThrownPage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
           {
             path: "",
             element: <Events />,
+            errorElement: <ThrownPage />,
             loader: loadEvents, //loader starts before navigating to events page
             end: true,
           },
