@@ -5,7 +5,7 @@ const EventDetail = () => {
   return (
     <div>
       <h3>Event Detail</h3>
-      <p>{JSON.stringify(params)}</p>
+      <p>ID: {params.id}</p>
     </div>
   );
 };
