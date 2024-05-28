@@ -7,3 +7,13 @@ function EventsPage() {
 }
 
 export default EventsPage;
+
+export const loadEvents = async () => {
+  const response = await fetch(`http://localhost:7005/events`);
+
+  if (!response.ok) {
+  } else {
+    const data = await response.json();
+    return data.events;
+  }
+};
