@@ -10,6 +10,8 @@ import EventLayout from "../pages/EventLayout";
 
 import { loadEvents } from "../pages/Events";
 import { getSingleEvent } from "../pages/EventDetail";
+import { newEvent } from "../pages/CreateEvent";
+import { deleteEvent } from "../pages/EventDetail";
 import ThrownPage from "../pages/ThrownPage";
 
 const router = createBrowserRouter([
@@ -41,6 +43,7 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetail />,
+                action: deleteEvent,
               },
               {
                 path: "edit",
@@ -51,6 +54,7 @@ const router = createBrowserRouter([
           {
             path: "new",
             element: <CreateEvent />,
+            action: newEvent,
           },
         ],
       },
