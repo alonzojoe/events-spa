@@ -9,11 +9,11 @@ const ThrownPage = () => {
   let message = "Error Message";
   console.log("e", error);
   if (error.status === 500) {
-    message = JSON.parse(error.data).message;
+    message = error.data.message;
   }
   if (error.status === 404) {
     title = "404 Not Found";
-    message = "404 API EndPoint not Found";
+    message = error.data.message;
   }
 
   return (
