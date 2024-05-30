@@ -1,16 +1,20 @@
+import { Suspense } from "react";
 import EventsList from "../components/EventsList";
-import { useLoaderData, json } from "react-router-dom";
+import { useLoaderData, json, defer, Await } from "react-router-dom";
 function EventsPage() {
-  const data = useLoaderData(); //react router will automatically get the return data in the loader() property of the route
+  const { events } = useLoaderData();
 
-  if (data.isError) {
-    return <p>{data.message}</p>;
-  }
-
-  const events = data.events;
-  console.log("data", data.isError);
-  console.log("events", events);
-  return <EventsList events={events} />;
+  return (
+    <Suspense
+      fallback={
+        <p style={{ textAlign: "center" }}>Loading from Suspense Fallback...</p>
+      }
+    >
+      <Await resolve={events}>
+        {(loadedEvents) => <EventsList events={loadedEvents} />}
+      </Await>
+    </Suspense>
+  );
 }
 
 export default EventsPage;
@@ -25,7 +29,13 @@ export const loadEvents = async () => {
     // }); //throwing an error will redirect the route to the closes errorElement
     throw json({ message: "Internal Server Error" }, { status: 500 });
   } else {
-    return response;
-    // return data.events;
+    const data = await response.json();
+    return data.events;
   }
 };
+
+export function loader() {
+  return defer({
+    events: loadEvents(),
+  });
+}

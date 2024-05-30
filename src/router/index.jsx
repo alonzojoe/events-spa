@@ -8,7 +8,7 @@ import CreateEvent from "../pages/CreateEvent";
 import EditEvent from "../pages/EditEvent";
 import EventLayout from "../pages/EventLayout";
 
-import { loadEvents } from "../pages/Events";
+import { loader as loadEvents } from "../pages/Events";
 import { getSingleEvent } from "../pages/EventDetail";
 import { manipulateEvent } from "../components/EventForm";
 import { deleteEvent } from "../pages/EventDetail";
