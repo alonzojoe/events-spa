@@ -9,7 +9,7 @@ import EditEvent from "../pages/EditEvent";
 import EventLayout from "../pages/EventLayout";
 
 import { loader as loadEvents } from "../pages/Events";
-import { getSingleEvent } from "../pages/EventDetail";
+import { loader as getEvents } from "../pages/EventDetail";
 import { manipulateEvent } from "../components/EventForm";
 import { deleteEvent } from "../pages/EventDetail";
 import ThrownPage from "../pages/ThrownPage";
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
           {
             path: ":id",
             id: "event-detail",
-            loader: getSingleEvent,
+            loader: getEvents,
             children: [
               {
                 index: true,
