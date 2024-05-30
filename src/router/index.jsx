@@ -10,7 +10,7 @@ import EventLayout from "../pages/EventLayout";
 
 import { loadEvents } from "../pages/Events";
 import { getSingleEvent } from "../pages/EventDetail";
-import { newEvent } from "../pages/CreateEvent";
+import { manipulateEvent } from "../components/EventForm";
 import { deleteEvent } from "../pages/EventDetail";
 import ThrownPage from "../pages/ThrownPage";
 
@@ -48,13 +48,14 @@ const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditEvent />,
+                action: manipulateEvent,
               },
             ],
           },
           {
             path: "new",
             element: <CreateEvent />,
-            action: newEvent,
+            action: manipulateEvent,
           },
         ],
       },
