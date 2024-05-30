@@ -13,6 +13,8 @@ import { getSingleEvent } from "../pages/EventDetail";
 import { manipulateEvent } from "../components/EventForm";
 import { deleteEvent } from "../pages/EventDetail";
 import ThrownPage from "../pages/ThrownPage";
+import NewsLetter from "../components/NewsLetter";
+import { action as actionNewsLetter } from "../components/NewsLetter";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,11 @@ const router = createBrowserRouter([
             action: manipulateEvent,
           },
         ],
+      },
+      {
+        path: "newsletter",
+        element: <NewsLetter />,
+        action: actionNewsLetter,
       },
     ],
   },
