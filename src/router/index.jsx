@@ -14,6 +14,7 @@ import { loader as getEvents } from "../pages/EventDetail";
 import { manipulateEvent } from "../components/EventForm";
 import { deleteEvent } from "../pages/EventDetail";
 import { action as actionNewsLetter } from "../components/NewsLetter";
+import { action as authAction } from "../pages/Authentication";
 import ThrownPage from "../pages/ThrownPage";
 import NewsLetter from "../components/NewsLetter";
 
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       {
         path: "auth",
         element: <Authentication />,
+        action: authAction,
       },
       {
         path: "events",

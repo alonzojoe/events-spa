@@ -44,7 +44,7 @@ function MainNavigation() {
                 isActive ? classes.active : undefined
               }
             >
-              Sign In
+              Auth
             </NavLink>
           </li>
         </ul>
