@@ -15,6 +15,8 @@ import { manipulateEvent } from "../components/EventForm";
 import { deleteEvent } from "../pages/EventDetail";
 import { action as actionNewsLetter } from "../components/NewsLetter";
 import { action as authAction } from "../pages/Authentication";
+import { action as authLogout } from "../pages/Logout";
+import { tokenLoader } from "../utils/auth";
 import ThrownPage from "../pages/ThrownPage";
 import NewsLetter from "../components/NewsLetter";
 
@@ -23,15 +25,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     errorElement: <ErrorPage />,
+    id: "app-layout",
+    loader: tokenLoader,
     children: [
       {
         index: true,
         element: <Home />,
-      },
-      {
-        path: "auth",
-        element: <Authentication />,
-        action: authAction,
       },
       {
         path: "events",
@@ -72,6 +71,15 @@ const router = createBrowserRouter([
         path: "newsletter",
         element: <NewsLetter />,
         action: actionNewsLetter,
+      },
+      {
+        path: "auth",
+        element: <Authentication />,
+        action: authAction,
+      },
+      {
+        path: "/logout",
+        action: authLogout,
       },
     ],
   },
