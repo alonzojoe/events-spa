@@ -7,14 +7,15 @@ import EventDetail from "../pages/EventDetail";
 import CreateEvent from "../pages/CreateEvent";
 import EditEvent from "../pages/EditEvent";
 import EventLayout from "../pages/EventLayout";
+import Authentication from "../pages/Authentication";
 
 import { loader as loadEvents } from "../pages/Events";
 import { loader as getEvents } from "../pages/EventDetail";
 import { manipulateEvent } from "../components/EventForm";
 import { deleteEvent } from "../pages/EventDetail";
+import { action as actionNewsLetter } from "../components/NewsLetter";
 import ThrownPage from "../pages/ThrownPage";
 import NewsLetter from "../components/NewsLetter";
-import { action as actionNewsLetter } from "../components/NewsLetter";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "auth",
+        element: <Authentication />,
       },
       {
         path: "events",

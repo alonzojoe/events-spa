@@ -1,10 +1,11 @@
 import React from "react";
+import PageContent from "./PageContent";
 
 const Home = () => {
   return (
-    <div>
-      <h1>HomePage</h1>
-    </div>
+    <PageContent title="Welcome to Events">
+      <p>Check out all our amazing events.</p>
+    </PageContent>
   );
 };
 
